@@ -1,7 +1,7 @@
-import { Link, NavLink } from 'react-router-dom';
-import { assets } from '../assets/assets';
-import { useContext, useState } from 'react';
-import { ShopContext } from '../Context/ShopContext';
+import { Link, NavLink } from "react-router-dom";
+import { assets } from "../assets/assets";
+import { useContext, useState } from "react";
+import { ShopContext } from "../Context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -49,8 +49,6 @@ const Navbar = () => {
               className="w-5 cursor-pointer"
             />
           </Link>
-          
-          </div>
         </div>
 
         <Link to="/cart" className="relative ">
@@ -71,7 +69,7 @@ const Navbar = () => {
       {/* Sidebar menu for small screens */}
       <div
         className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white ease-in duration-300
-             ${visible ? 'w-full' : 'w-0'}`}
+             ${visible ? "w-full" : "w-0"}`}
       >
         <div className="flex flex-col text-gray-600 ">
           <div
@@ -91,8 +89,8 @@ const Navbar = () => {
             className="py-2 pl-6 border"
             to="/"
           >
-            {' '}
-            HOME{' '}
+            {" "}
+            HOME{" "}
           </NavLink>
           <NavLink
             onClick={() => {
@@ -101,8 +99,8 @@ const Navbar = () => {
             className="py-2 pl-6 border"
             to="/collection"
           >
-            {' '}
-            COLLECTION{' '}
+            {" "}
+            COLLECTION{" "}
           </NavLink>
           <NavLink
             onClick={() => {
@@ -111,8 +109,8 @@ const Navbar = () => {
             className="py-2 pl-6 border"
             to="/about"
           >
-            {' '}
-            ABOUT{' '}
+            {" "}
+            ABOUT{" "}
           </NavLink>
           <NavLink
             onClick={() => {
@@ -121,8 +119,8 @@ const Navbar = () => {
             className="py-2 pl-6 border"
             to="/contact"
           >
-            {' '}
-            CONTACT{' '}
+            {" "}
+            CONTACT{" "}
           </NavLink>
         </div>
       </div>
