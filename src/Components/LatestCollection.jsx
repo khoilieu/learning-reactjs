@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
-import { ShopContext } from '../Context/ShopContext';
-import Title from '../components/Title';
-import ProductItem from '../components/ProductItem';
+import { useContext, useEffect, useState } from "react";
+import { ShopContext } from "../Context/ShopContext";
+import Title from "../Components/Title";
+import ProductItem from "../Components/ProductItem";
 
 const LatestCollection = () => {
   const { products } = useContext(ShopContext);
@@ -15,7 +15,7 @@ const LatestCollection = () => {
   return (
     <div className="my-10">
       <div className="py-8 text-center text-3xl">
-        <Title text1={'LATEST'} text2={'COLLECTIONS'} />
+        <Title text1={"LATEST"} text2={"COLLECTIONS"} />
         <p className="w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600">
           Discover our newest arrivals that blend style and comfort. Explore the
           latest trends in fashion, curated just for you.
