@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const Login = () => {
-  const [currentState, setCurrentState] = useState('Sign Up');
+  const [currentState, setCurrentState] = useState("Sign Up");
 
   const onSubmmitHandler = (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const Login = () => {
       </div>
 
       <div className="w-full px-3 py-2 flex flex-col gap-4">
-        {currentState === 'Sign Up' ? (
+        {currentState === "Sign Up" ? (
           <input
             type="text"
             className="w-Full px-3 py-2 border border-gray-880"
@@ -42,16 +42,16 @@ const Login = () => {
 
         <div className="w-full flex justify-between text-sm mt-[-8px]">
           <p className=" cursor-pointer">Forgot your password?</p>
-          {currentState === 'Login' ? (
+          {currentState === "Login" ? (
             <p
-              onClick={() => setCurrentState('Sign Up')}
+              onClick={() => setCurrentState("Sign Up")}
               className="cursor-pointer"
             >
               Create Account
             </p>
           ) : (
             <p
-              onClick={() => setCurrentState('Login')}
+              onClick={() => setCurrentState("Login")}
               className="cursor-pointer"
             >
               Login Here
@@ -59,7 +59,7 @@ const Login = () => {
           )}
         </div>
         <button className="w-1/2 m-auto bg-black text-white px-8 py-2 mt-4 ">
-          {currentState === 'Login' ? 'Sign In' : 'Sign Up'}
+          {currentState === "Login" ? "Sign In" : "Sign Up"}
         </button>
       </div>
     </form>

@@ -1,11 +1,11 @@
-import { useContext, useState } from 'react';
-import { assets } from '../assets/assets';
-import CartTotal from '../Components/CartTotal';
-import Title from '../Components/Title';
-import { ShopContext } from '../Context/ShopContext';
+import { useContext, useState } from "react";
+import { assets } from "../assets/assets";
+import CartTotal from "../Components/CartTotal";
+import Title from "../Components/Title";
+import { ShopContext } from "../Context/ShopContext";
 
 const PlaceOrder = () => {
-  const [paymentMethod, setPaymentMethod] = useState('cod');
+  const [paymentMethod, setPaymentMethod] = useState("cod");
 
   const { navigate } = useContext(ShopContext);
 
@@ -15,7 +15,7 @@ const PlaceOrder = () => {
 
       <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
         <div className="text-xl sm:text-2xl my-3 ">
-          <Title text1={'DELIVERY'} text2={'INFORMATION'} />
+          <Title text1={"DELIVERY"} text2={"INFORMATION"} />
         </div>
         <div className="flex flex-col sm:flex-row  gap-3">
           <input
@@ -78,50 +78,50 @@ const PlaceOrder = () => {
         </div>
 
         <div className="mt-12">
-          <Title text1={'PAYMENT'} text2={'METHOD'} />
+          <Title text1={"PAYMENT"} text2={"METHOD"} />
 
           {/* -------------- Payment method selection -------------- */}
 
           <div className="flex flex-col lg:flex-row gap-4">
             <div
               onClick={() => {
-                setPaymentMethod('stripe');
+                setPaymentMethod("stripe");
               }}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
             >
               <p
                 className={` min-w-3.5 h-3.5 border rounded-full ${
-                  paymentMethod === 'stripe' ? 'bg-green-400' : ''
+                  paymentMethod === "stripe" ? "bg-green-400" : ""
                 }`}
               ></p>
               <img className="h5 mx-4" src={assets.stripe_logo} alt="" />
             </div>
             <div
               onClick={() => {
-                setPaymentMethod('razorpay');
+                setPaymentMethod("razorpay");
               }}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
             >
               <p
                 className={` min-w-3.5 h-3.5 border rounded-full ${
-                  paymentMethod === 'razorpay' ? 'bg-green-400' : ''
+                  paymentMethod === "razorpay" ? "bg-green-400" : ""
                 }`}
               ></p>
               <img className="h5 mx-4" src={assets.razorpay_logo} alt="" />
             </div>
             <div
               onClick={() => {
-                setPaymentMethod('cod');
+                setPaymentMethod("cod");
               }}
               className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
             >
               <p
                 className={` min-w-3.5 h-3.5 border rounded-full ${
-                  paymentMethod === 'cod' ? 'bg-green-400' : ''
+                  paymentMethod === "cod" ? "bg-green-400" : ""
                 }`}
               ></p>
               <p className="text-gray-500 text-sm font-medium mx-4">
-                {' '}
+                {" "}
                 CASH ON DELIVARY
               </p>
             </div>
@@ -131,7 +131,7 @@ const PlaceOrder = () => {
 
           <div className="w-full text-end mt-8">
             <button
-              onClick={() => navigate('/orders')}
+              onClick={() => navigate("/orders")}
               className="bg-black text-white px-16 py-3 text-sm"
             >
               PLACE ORDER

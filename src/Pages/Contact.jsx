@@ -1,19 +1,19 @@
-import { assets } from '../assets/assets';
-import NewsLetterBox from '../Components/NewsLetterBox';
-import Title from '../Components/Title';
+import { assets } from "../assets/assets";
+import NewsLetterBox from "../Components/NewsLetterBox";
+import Title from "../Components/Title";
 
 const Contact = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
   return (
     <div>
       <div className="to-current text-2xl pt-10 border-t">
-        <Title text1={'CONTACT'} text2={'US'} />
+        <Title text1={"CONTACT"} text2={"US"} />
       </div>
 
       <div className="flex flex-col justify-center sm:flex-row gap-10 my-10 mb-28">

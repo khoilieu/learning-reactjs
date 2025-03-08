@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { ShopContext } from '../Context/ShopContext';
-import Title from '../Components/Title';
-import { assets } from '../assets/assets';
-import CartTotal from '../Components/CartTotal';
+import { useContext, useEffect, useState } from "react";
+import { ShopContext } from "../Context/ShopContext";
+import Title from "../Components/Title";
+import { assets } from "../assets/assets";
+import CartTotal from "../Components/CartTotal";
 
 const Cart = () => {
   const { products, currency, cartItems, updateQuantity, navigate, addOrder } =
@@ -28,7 +28,7 @@ const Cart = () => {
   return (
     <div className="pt-14 border-t">
       <div className="mb-3 text-2xl">
-        <Title text1={'YOUR'} text2={'CART'} />
+        <Title text1={"YOUR"} text2={"CART"} />
       </div>
 
       {/* Cart Items      */}
@@ -69,7 +69,7 @@ const Cart = () => {
 
               <input
                 onChange={(e) => {
-                  e.target.value === '' || e.target.value < 0
+                  e.target.value === "" || e.target.value < 0
                     ? null
                     : updateQuantity(
                         item._id,
@@ -101,7 +101,7 @@ const Cart = () => {
             <button
               onClick={() => {
                 addOrder(); // Call addOrder to move items to orders state
-                navigate('/place-order');
+                navigate("/place-order");
               }}
               className="my-8 px-8 py-3 bg-black text-white text-sm"
             >

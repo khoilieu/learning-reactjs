@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import { ShopContext } from '../Context/ShopContext';
-import { assets } from '../assets/assets';
-import Title from '../Components/Title';
-import ProductItem from '../Components/ProductItem';
+import { useContext, useEffect, useState } from "react";
+import { ShopContext } from "../Context/ShopContext";
+import { assets } from "../assets/assets";
+import Title from "../Components/Title";
+import ProductItem from "../Components/ProductItem";
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -10,7 +10,7 @@ const Collection = () => {
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
   const [subCategory, setSubCategory] = useState([]);
-  const [sortType, setSortType] = useState('relevent');
+  const [sortType, setSortType] = useState("relevent");
 
   const toggleCategory = (e) => {
     const value = e.target.value;
@@ -59,10 +59,10 @@ const Collection = () => {
     let filteredProdCopy = [...filterProducts]; // Create a shallow copy of filtered products
 
     switch (sortType) {
-      case 'low-high':
+      case "low-high":
         setFilterProducts(filteredProdCopy.sort((a, b) => a.price - b.price));
         break;
-      case 'high-low':
+      case "high-low":
         setFilterProducts(filteredProdCopy.sort((a, b) => b.price - a.price));
         break;
 
@@ -96,19 +96,19 @@ const Collection = () => {
           }}
           className="my-2 text-xl flex items-center cursor-pointer gap-2"
         >
-          {' '}
+          {" "}
           Filters
           <img
             src={assets.dropdown_icon}
             alt=""
-            className={`h-3 sm:hidden ${showFilter ? 'rotate-90' : ''}`}
+            className={`h-3 sm:hidden ${showFilter ? "rotate-90" : ""}`}
           />
         </p>
 
         {/* Category Filter */}
         <div
           className={`border border-gray-300 pl-5 py-3 mt-6 ${
-            showFilter ? '' : 'hidden'
+            showFilter ? "" : "hidden"
           } 
             sm:block`}
         >
@@ -119,7 +119,7 @@ const Collection = () => {
               <input
                 type="checkbox"
                 className="w-3"
-                value={'Men'}
+                value={"Men"}
                 onChange={toggleCategory}
               />
               MEN
@@ -128,7 +128,7 @@ const Collection = () => {
               <input
                 type="checkbox"
                 className="w-3"
-                value={'Women'}
+                value={"Women"}
                 onChange={toggleCategory}
               />
               WOMEN
@@ -137,7 +137,7 @@ const Collection = () => {
               <input
                 type="checkbox"
                 className="w-3"
-                value={'Kids'}
+                value={"Kids"}
                 onChange={toggleCategory}
               />
               KIDS
@@ -148,7 +148,7 @@ const Collection = () => {
         {/* Sub Catrgory Filter */}
         <div
           className={`border border-gray-300 pl-5 py-3 my-5 ${
-            showFilter ? '' : 'hidden'
+            showFilter ? "" : "hidden"
           } 
             sm:block`}
         >
@@ -159,7 +159,7 @@ const Collection = () => {
               <input
                 type="checkbox"
                 className="w-3"
-                value={'Topwear'}
+                value={"Topwear"}
                 onChange={toggleSubCategory}
               />
               Topwear
@@ -168,7 +168,7 @@ const Collection = () => {
               <input
                 type="checkbox"
                 className="w-3"
-                value={'Bottomwear'}
+                value={"Bottomwear"}
                 onChange={toggleSubCategory}
               />
               Bottomwear
@@ -177,7 +177,7 @@ const Collection = () => {
               <input
                 type="checkbox"
                 className="w-3"
-                value={'Winterwear'}
+                value={"Winterwear"}
                 onChange={toggleSubCategory}
               />
               Winterwear
@@ -191,7 +191,7 @@ const Collection = () => {
       <div className="flex-1">
         {/* Title */}
         <div className="flex justify-between text-sm sm:text-xl lg:text-2xl mb-4">
-          <Title text1={'ALL'} text2={'COLLECTIONS'} />
+          <Title text1={"ALL"} text2={"COLLECTIONS"} />
 
           {/* Product Sort */}
           <select
