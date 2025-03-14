@@ -1,7 +1,24 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { assets } from '../assets/assets';
-import NewsLetterBox from '../Components/NewsLetterBox';
-import Title from '../Components/Title';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+
+const Breadcrumb = () => {
+  return (
+    <nav className="text-sm mb-4">
+      <ol className="list-reset flex">
+        <li>
+          <a href="/" className="text-gray-500 hover:text-black text-md font-semibold">🏠︎ Trang Chủ</a>
+        </li>
+        <li>
+          <span className="mx-2"><FontAwesomeIcon icon={faChevronRight} /><FontAwesomeIcon icon={faChevronRight} /></span>
+        </li>
+        <li>
+          <a href="/courses" className="text-blue-400 hover:text-blue-700 text-md font-semibold">Khóa Học</a>
+        </li>
+      </ol>
+    </nav>
+  );
+};
 
 const Courses = () => {
   const [links, setLinks] = useState(['']);
@@ -58,7 +75,8 @@ const Courses = () => {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto p-2 px-10 bg-white rounded-md ">
+    <div className="max-w-5xl mx-auto p-2 px-10 bg-white rounded-md mt-10">
+      <Breadcrumb />
       <h1 className="text-2xl font-bold text-center text-green-600 mb-4">Nhận khóa học tại đây</h1>
       <hr className='mb-6'/>
       <div className="mb-4">

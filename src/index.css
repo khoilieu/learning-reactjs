@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +12,7 @@ a.active hr {
 * {
   font-family: 'Manrope', sans-serif;
 }
+
 
 .prata-regular {
   font-family: 'Prata', serif;
