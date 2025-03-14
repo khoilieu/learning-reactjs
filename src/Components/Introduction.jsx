@@ -7,7 +7,7 @@ const Introduction = () => {
         <img
           src={assets.udemy_img}
           alt=""
-          className="w-full md:max-w-[600px] md:h-[750px]"
+          className="w-full md:max-w-[600px] md:h-[750px] rounded-md"
         />
 
         <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600">
@@ -45,7 +45,7 @@ const Introduction = () => {
             <h4 className="font-bold text-lg text-green-700">Tiết kiệm chi phí</h4>
             Tool hỗ trợ bạn chi phí cũng như tiết kiệm thời gian cho bạn .
           </p>
-          <button className="mt-4 px-4 py-2 text-white font-bold rounded border-2 bg-red-700  hover:bg-white hover:border-red-700 hover:text-black transition duration-300 ease-in-out">
+          <button className="mt-4 px-4 py-2 text-white font-bold rounded-md border-2 bg-red-700  hover:bg-white hover:border-red-700 hover:text-black transition duration-300 ease-in-out">
             Tải khóa học ngay!
           </button>
         </div>

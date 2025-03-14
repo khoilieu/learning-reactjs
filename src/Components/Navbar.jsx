@@ -13,12 +13,12 @@ const Navbar = () => {
         <img src={assets.logo} alt="logo" className="w-24" />
       </Link>
 
-      <ul className="hidden sm:flex gap-5 text-lg text-gray-700">
+      <ul className="hidden sm:flex gap-5 text-lg font-semibold text-gray-700">
         <NavLink to="/" className="flex flex-col items-center gap-1">
           <p>Trang Chủ</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
-        <NavLink to="/collection" className="flex flex-col items-center gap-1">
+        <NavLink to="/courses" className="flex flex-col items-center gap-1">
           <p>Khóa Học</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
@@ -97,7 +97,7 @@ const Navbar = () => {
               setVisible(false);
             }}
             className="py-2 pl-6 border"
-            to="/collection"
+            to="/courses"
           >
             {" "}
             COLLECTION{" "}
