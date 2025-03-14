@@ -6,30 +6,15 @@ const NewsLetterBox = () => {
 
   return (
     <div className="text-center">
-      <p className="text-2xl font-medium text-gray-800">
-        Subscribe now & get 20% off
+      <hr className="" />
+      <p className="text-4xl font-bold text-gray-800 mt-10">
+        <span className="text-green-700">Savvy Hub</span> là công cụ gì?
       </p>
       <p className="text-gray-500 mt-3">
-        Be the first to know about new arrivals, sales & promos!
+        Là công cụ giúp bạn tải khóa học Udemy bạn cần về Drive!. Full Bootcamp sẽ tải khóa <br />
+        học rồi chia sẻ lại qua Google Drive cho bạn với chi phí thấp hơn giá gốc. <br />
+        Trong Drive bạn nhận bao gồm: file, Video, Phụ đề : eng,vi
       </p>
-
-      <form
-        onSubmit={onSubmitHandler}
-        className="w-full sm:w-1/2 flex items-center gap-3 mx-auto my-6 border pl-3"
-      >
-        <input
-          type="email"
-          placeholder="Enter your email"
-          className="w-full sm:flex-1 outline-none "
-          required
-        />
-        <button
-          type="submit"
-          className="bg-black text-white text-xs px-10 py-4 "
-        >
-          Subscribe
-        </button>
-      </form>
     </div>
   );
 };
