@@ -81,6 +81,9 @@ import html5 from './html5.png';
 import jquery from './jquery.png';
 import css from './css.png';
 import react_native from './react_native.png';
+import step1 from './step1.png';
+import step2 from './step2.png';
+import step3 from './step3.png';
 
 export const assets = {
   logo,
@@ -109,7 +112,10 @@ export const assets = {
   html5, 
   jquery,
   css,
-  react_native
+  react_native,
+  step1,
+  step2,
+  step3,
 };
 
 export const products1 = [

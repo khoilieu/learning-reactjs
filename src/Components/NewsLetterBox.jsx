@@ -8,7 +8,7 @@ const NewsLetterBox = () => {
     <div className="text-center">
       <hr className="" />
       <p className="text-4xl font-bold text-gray-800 mt-10">
-        <span className="text-green-700">Savvy Hub</span> là công cụ gì?
+        <span className="text-green-700">Savvy Sub</span> là công cụ gì?
       </p>
       <p className="text-gray-500 mt-3">
         Là công cụ giúp bạn tải khóa học Udemy bạn cần về Drive!. Full Bootcamp sẽ tải khóa <br />

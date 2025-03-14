@@ -9,7 +9,7 @@ const Hero = () => {
             <p className="font-bold text-sm md:text-base">Nhận Khóa Học</p>
           </div>
           <h1 className="text-3xl sm:py-3 lg:text-5xl mt-3 mb-3 font-bold">
-            <span className='text-red-700'>Udemy</span> <strong className='text-green-700'>Giá chỉ từ 30k</strong>
+            <span className='text-red-700'>Udemy</span> <strong className='text-green-700'>Giá chỉ từ 40k</strong>
           </h1>
           <div className="flex items-center gap-2">
             <p className="w-8 md:w-11 h-[1px] bg-[#414141]"></p>
