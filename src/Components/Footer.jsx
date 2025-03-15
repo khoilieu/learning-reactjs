@@ -10,48 +10,24 @@ const Footer = () => {
   };
 
   return (
-    <div className="f">
-      <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm ">
-        <div className="">
-          <img src={assets.logo} alt="" className="mb-5 w-32 " />
-          <p className="w-full sm:w-2/3 text-gray-600">
-            Shop with Forever and experience the convenience of online shopping
-            like never before.
-          </p>
-        </div>
-
-        <div className="">
-          <p className="text-xl font-medium mb-5">COMPANY</p>
-
-          <ul className="flex flex-col flex-1 text-gray-600 cursor-pointer">
-            <li onClick={scrollToTop} className="mb-2">
-              Home
-            </li>
-            <li onClick={scrollToTop} className="mb-2">
-              About Us
-            </li>
-            <li onClick={scrollToTop} className="mb-2">
-              Delivery
-            </li>
-            <li onClick={scrollToTop} className="mb-2">
-              Privacy policy
-            </li>
-          </ul>
-        </div>
-
-        <div className="">
-          <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
-          <ul className="flex flex-col flex-1 text-gray-600">
-            <li className="mb-2">+123 456 7890</li>
-            <li className="mb-2">contact@forevryou.com </li>
-          </ul>
-        </div>
-      </div>
-      <div>
-        <hr />
-        <p className="py-5 text-sm text-center">
-          Copyright 2024@ forever.com - All Rights Reserved
+    <div className="mt-20 bg-white py-5">
+      <div className="container mx-auto flex justify-between items-center">
+        <p className="text-sm text-gray-600">
+          © 2025 Savvy Sub. All Rights Reserved.
         </p>
+        <div className="flex space-x-4">
+          <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Về chúng tôi</a>
+          <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Chính sách bảo mật</a>
+          <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Liên Hệ</a>
+          <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Hỗ Trợ</a>
+          <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Fanpage</a>
+        </div>
+        <button
+          onClick={scrollToTop}
+          className="bg-gray-100 text-gray-600 text-sm py-2 px-4 rounded-full hover:bg-gray-200"
+        >
+          Tiếng Việt
+        </button>
       </div>
     </div>
   );

@@ -68,10 +68,22 @@ import star_icon from './star_icon.png';
 import support_img from './support_img.png';
 import menu_icon from './menu_icon.png';
 import about_img from './about_img.png';
+import udemy_img from './udemy_img.png';
 import contact_img from './contact_img.png';
 import razorpay_logo from './razorpay_logo.png';
 import stripe_logo from './stripe_logo.png';
 import cross_icon from './cross_icon.png';
+import high_quality from './high_quality.png';
+import refresh from './refresh.png';
+import save_money from './save_money.png';
+import nodejs from './nodejs.png';
+import html5 from './html5.png';
+import jquery from './jquery.png';
+import css from './css.png';
+import react_native from './react_native.png';
+import step1 from './step1.png';
+import step2 from './step2.png';
+import step3 from './step3.png';
 
 export const assets = {
   logo,
@@ -88,10 +100,22 @@ export const assets = {
   support_img,
   menu_icon,
   about_img,
+  udemy_img,
   contact_img,
   razorpay_logo,
   stripe_logo,
   cross_icon,
+  high_quality,
+  refresh,
+  save_money,
+  nodejs,
+  html5, 
+  jquery,
+  css,
+  react_native,
+  step1,
+  step2,
+  step3,
 };
 
 export const products1 = [

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
 
 @tailwind base;
 @tailwind components;
@@ -9,8 +10,9 @@ a.active hr {
 }
 
 * {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Manrope', sans-serif;
 }
+
 
 .prata-regular {
   font-family: 'Prata', serif;
