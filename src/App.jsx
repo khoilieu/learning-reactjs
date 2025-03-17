@@ -16,6 +16,7 @@ import SearchBar from "./Components/SearchBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Plastforms from "./Pages/Plastforms";
+import PlatformDetail from "./Pages/PlatformDetail";
 
 console.log(toast);
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/orders" element={<Orders />} />
         <Route path="/platforms" element={<Plastforms />} />
+        <Route path="/platform/:id" element={<PlatformDetail />} />
       </Routes>
 
       <Footer />
