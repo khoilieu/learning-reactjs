@@ -19,7 +19,7 @@ const Footer = () => {
         <div>
           <h2 className="text-lg font-bold mb-4">THÔNG TIN VÀ CHÍNH SÁCH</h2>
           <ul className="text-sm space-y-2">
-            <li><a href="/about" className="hover:underline"><FontAwesomeIcon icon={faChevronRight} size="xs" className='mr-2' /> Giới thiệu về Quán</a></li>
+            <li><a href="/about" className="hover:underline"><FontAwesomeIcon icon={faChevronRight} size="xs" className='mr-2' /> Giới thiệu về chúng tôi</a></li>
             <hr />
             <li><a href="#" className="hover:underline"><FontAwesomeIcon icon={faChevronRight} size="xs" className='mr-2' /> Chính sách thanh toán</a></li>
             <hr />
@@ -45,8 +45,8 @@ const Footer = () => {
         <div>
           <h2 className="text-lg font-bold mb-4">LIÊN HỆ</h2>
           <div className="flex space-x-4 mb-4">
-            <button className="bg-orange-500 shadow-lg shadow-gray-600 text-white py-3 px-5 font-bold rounded-lg hover:bg-orange-700 transform-bg duration-500">TƯ VẤN</button>
-            <button className="bg-red-500 shadow-lg shadow-gray-600 text-white py-3 px-5 font-bold rounded-lg hover:bg-red-700 transform-bg duration-500">BẢO HÀNH</button>
+            <button className="bg-orange-600 shadow-lg shadow-gray-600 text-white py-3 px-7 font-bold rounded-lg hover:bg-orange-700 transform-bg duration-500">TƯ VẤN</button>
+            <button className="bg-red-600 shadow-lg shadow-gray-600 text-white py-3 px-7 font-bold rounded-lg hover:bg-red-700 transform-bg duration-500">BẢO HÀNH</button>
           </div>
           <p className="text-sm mb-2"><strong>Email:</strong> cskh.quantraai@gmail.com</p>
           <p className="text-sm mb-4"><strong>Địa chỉ:</strong> 71/1 Nguyễn Văn Thương, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh</p>

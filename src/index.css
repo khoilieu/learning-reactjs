@@ -29,3 +29,14 @@ a.active hr {
     color: white;
   }
 }
+
+.loader {
+  border-top-color: #008052;
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

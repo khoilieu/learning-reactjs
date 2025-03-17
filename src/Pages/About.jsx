@@ -22,19 +22,11 @@ const Breadcrumb = () => {
 };
 
 const About = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <div className="max-w-7xl mx-auto p-2 px-10 bg-white rounded-md mt-10">
       <Breadcrumb />
       <div className="to-current text-3xl pt-5">
-        <Title text1={"SavvySub"} text2={"Kiến thức & Giải trí, Giá rẻ bất ngờ!"} />
+        <Title text1={<span className="text-green-700 font-bold text-4xl">SavvySub</span>} text2={<span className="text-2xl">Kiến thức & Giải trí, Giá rẻ bất ngờ!</span>} />
       </div>
 
       <div className="flex flex-col justify-center gap-5 my-5 mx-5 leading-8 text-justify">
@@ -101,10 +93,10 @@ const About = () => {
           <p className="text-gray-800">Đừng ngần ngại liên hệ nếu bạn cần hỗ trợ hoặc muốn tìm hiểu thêm về dịch vụ của chúng tôi.</p>
           <ul className="list-none text-gray-800">
             <li><strong>Hotline:</strong> 088 859 1891</li>
-            <li><strong>Website:</strong> <a href="https://savvysub.com" className="text-blue-600">https://savvysub.com</a></li>
-            <li><strong>Facebook:</strong> <a href="https://www.facebook.com/savvysub" className="text-blue-600">https://www.facebook.com/savvysub</a></li>
-            <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@SavvySub" className="text-blue-600">https://www.youtube.com/@SavvySub</a></li>
-            <li><strong>TikTok:</strong> <a href="https://www.tiktok.com/@savvysub" className="text-blue-600">https://www.tiktok.com/@savvysub</a></li>
+            <li><strong>Website:</strong> <a href="https://savvysub.com" className="text-green-700 underline hover:text-green-500">https://savvysub.com</a></li>
+            <li><strong>Facebook:</strong> <a href="https://www.facebook.com/savvysub" className="text-green-700 underline hover:text-green-500">https://www.facebook.com/savvysub</a></li>
+            <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@SavvySub" className="text-green-700 underline hover:text-green-500">https://www.youtube.com/@SavvySub</a></li>
+            <li><strong>TikTok:</strong> <a href="https://www.tiktok.com/@savvysub" className="text-green-700 underline hover:text-green-500">https://www.tiktok.com/@savvysub</a></li>
             <li><strong>Địa chỉ:</strong> 71/1 Nguyễn Văn Thương, Phường 25, Bình Thạnh, TP. Hồ Chí Minh</li>
           </ul>
           <p className="text-gray-800">Chúng tôi luôn sẵn sàng hỗ trợ và đồng hành cùng bạn!</p>
