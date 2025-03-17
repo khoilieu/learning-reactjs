@@ -26,11 +26,11 @@ const Navbar = () => {
           <p>Sản Phẩm</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
-        <NavLink to="/contact" className="flex flex-col items-center gap-1">
+        <NavLink to="/checkorder" className="flex flex-col items-center gap-1">
           <p>Kiểm Tra Đơn Hàng</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
-        <NavLink to="/blog" className="flex flex-col items-center gap-1">
+        <NavLink to="/blogtutorial" className="flex flex-col items-center gap-1">
           <p>Blog Hướng Dẫn</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
