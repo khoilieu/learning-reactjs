@@ -17,32 +17,38 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Plastforms from "./Pages/Plastforms";
 import PlatformDetail from "./Pages/PlatformDetail";
+import BlogTutorial from "./Pages/BlogTutorial";
 
 console.log(toast);
 
 function App() {
   return (
-    <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-      <ToastContainer />
+    <div>
+      <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+        <ToastContainer />
 
-      <Navbar />
-      <SearchBar />
+        <Navbar />
+        <SearchBar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/product/:productId" element={<Product />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/place-order" element={<PlaceOrder />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/platforms" element={<Plastforms />} />
-        <Route path="/platform/:id" element={<PlatformDetail />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/product/:productId" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/place-order" element={<PlaceOrder />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/platforms" element={<Plastforms />} />
+          <Route path="/platform/:id" element={<PlatformDetail />} />
+          <Route path="/blogtutorial" element={<BlogTutorial />} />
+        </Routes>
+      </div>
 
-      <Footer />
+      <div className="mt-10">
+        <Footer />
+      </div>
     </div>
   );
 }

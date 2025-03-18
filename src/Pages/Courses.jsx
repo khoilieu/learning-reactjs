@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faCreditCard } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const Breadcrumb = () => {
   return (
@@ -133,6 +136,7 @@ const Courses = () => {
           type="button"
           onClick={() => setShowPayment(true)}
         >
+          <FontAwesomeIcon icon={faSearch} className="mr-2 text-gray-300" />
           Check Khóa Học
         </button>
 
@@ -156,12 +160,22 @@ const Courses = () => {
               <p className="font-bold text-purple-700">{course.price}</p>
             </div>
           ))}
-          <button
-            className="w-full bg-purple-700 text-white font-bold py-3 px-4 rounded-md hover:bg-purple-800"
-            type="button"
-          >
-            Thanh Toán
-          </button>
+          <div className="flex space-x-4">
+            <button
+              className="w-full bg-purple-700 text-white font-bold py-3 px-4 rounded-md hover:bg-purple-600 transition-colors duration-300"
+              type="button"
+            >
+              <FontAwesomeIcon icon={faCreditCard} className="mr-2" /> 
+              Mua Ngay
+            </button>
+            <button
+              className="w-full bg-blue-700 text-white font-bold py-3 px-4 rounded-md hover:bg-blue-600 transition-colors duration-300"
+              type="button"
+            >
+              <FontAwesomeIcon icon={faShoppingCart} className="mr-2" /> 
+              Thêm Vào Giỏ Hàng
+            </button>
+          </div>
         </div>
       </div>
     </div>

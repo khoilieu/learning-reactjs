@@ -1,34 +1,63 @@
-import { assets } from '../assets/assets';
+import React, { useState, useRef, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
-  };
-
   return (
-    <div className="mt-20 bg-white py-5">
-      <div className="container mx-auto flex justify-between items-center">
-        <p className="text-sm text-gray-600">
-          © 2025 Savvy Sub. All Rights Reserved.
-        </p>
-        <div className="flex space-x-4">
-          <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Về chúng tôi</a>
-          <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Chính sách bảo mật</a>
-          <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Liên Hệ</a>
-          <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Hỗ Trợ</a>
-          <a href="#" className="text-sm text-gray-600 hover:text-gray-800">Fanpage</a>
+    <div className="text-white text-sm py-10 px-48 w-full" style={{ backgroundColor: '#008052' }}>
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-5">
+        <div>
+          <h2 className="text-lg font-bold mb-4 text-center">SAVVY SUB</h2>
+          <p className="text-sm text-justify">
+            SavvySub là nền tảng hàng đầu chuyên cung cấp khóa học trực tuyến và tài khoản bản quyền với giá cả hợp lý nhất. Chúng tôi giúp bạn dễ dàng tiếp cận các dịch vụ cao cấp như YouTube Premium, Udemy Business, ChatGPT Plus, Adobe, Office 365, Canva Pro, Google One, Spotify Premium, Netflix, Elsa Pro, Duolingo và nhiều sản phẩm khác, đảm bảo trải nghiệm học tập và giải trí chất lượng.
+          </p>
+          <div className="mt-4 text-center flex flex-col items-center">
+            <strong className='text-sm mb-2'>Chứng Nhận & Bản Quyền</strong>
+            <img src="https://kinsta.com/wp-content/uploads/2019/04/DMCA-protected.png" alt="DMCA" className="w-24" />
+          </div>
         </div>
-        <button
-          onClick={scrollToTop}
-          className="bg-gray-100 text-gray-600 text-sm py-2 px-4 rounded-full hover:bg-gray-200"
-        >
-          Tiếng Việt
-        </button>
+        <div>
+          <h2 className="text-lg font-bold mb-4">THÔNG TIN VÀ CHÍNH SÁCH</h2>
+          <ul className="text-sm space-y-2">
+            <li><a href="/about" className="hover:underline"><FontAwesomeIcon icon={faChevronRight} size="xs" className='mr-2' /> Giới thiệu về chúng tôi</a></li>
+            <hr />
+            <li><a href="#" className="hover:underline"><FontAwesomeIcon icon={faChevronRight} size="xs" className='mr-2' /> Chính sách thanh toán</a></li>
+            <hr />
+            <li><a href="#" className="hover:underline"><FontAwesomeIcon icon={faChevronRight} size="xs" className='mr-2' /> Chính sách bảo mật</a></li>
+            <hr />
+            <li><a href="#" className="hover:underline"><FontAwesomeIcon icon={faChevronRight} size="xs" className='mr-2' /> Điều khoản sử dụng</a></li>
+            <hr />
+            <li><a href="#" className="hover:underline"><FontAwesomeIcon icon={faChevronRight} size="xs" className='mr-2' /> Chính sách giao hàng</a></li>
+            <hr />
+            <li><a href="#" className="hover:underline"><FontAwesomeIcon icon={faChevronRight} size="xs" className='mr-2'/> Chính sách bảo hành</a></li>
+          </ul>
+          <div className="max-w-screen-xl mt-10 mx-auto text-center px-5">
+            <p className="text-sm">Phương thức thanh toán</p>
+            <div className="flex justify-center space-x-4 my-3">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa" className="w-12 h-7" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Mastercard-logo.png/1200px-Mastercard-logo.png" alt="MasterCard" className="w-12 h-8" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/ATM_logo.svg/1200px-ATM_logo.svg.png?20230709124333" alt="ATM" className="w-12 h-8" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/PayPal_logo.svg/1200px-PayPal_logo.svg.png" alt="PayPal" className="w-12 h-7" />
+            </div>
+            <p className="text-sm mt-3">Copyright 2025 © SavvySub</p>
+          </div>
+        </div>
+        <div>
+          <h2 className="text-lg font-bold mb-4">LIÊN HỆ</h2>
+          <div className="flex space-x-4 mb-4">
+            <button className="bg-orange-600 shadow-lg shadow-gray-600 text-white py-3 px-7 font-bold rounded-lg hover:bg-orange-700 transform-bg duration-500">TƯ VẤN</button>
+            <button className="bg-red-600 shadow-lg shadow-gray-600 text-white py-3 px-7 font-bold rounded-lg hover:bg-red-700 transform-bg duration-500">BẢO HÀNH</button>
+          </div>
+          <p className="text-sm mb-2"><strong>Email:</strong> cskh.quantraai@gmail.com</p>
+          <p className="text-sm mb-4"><strong>Địa chỉ:</strong> 71/1 Nguyễn Văn Thương, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh</p>
+          <h2 className="text-lg font-bold mb-4">ĐĂNG KÝ</h2>
+          <p className="text-sm mb-4">Đăng ký theo dõi chúng tôi để nhận thông báo về việc ra mắt sản phẩm, ưu đãi đặc biệt và tin tức về công nghệ, lập trình và phần mềm.</p>
+          <div className='flex flex-col items-center'>
+            <button className="text-white font-bold border-2 border-white shadow-lg shadow-gray-600 py-2 px-8 rounded-full hover:bg-white hover:text-green-700  transform-bg duration-500">Subscribe</button>
+          </div>
+        </div>
       </div>
+      
     </div>
   );
 };

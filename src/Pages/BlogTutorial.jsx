@@ -14,14 +14,20 @@ const Breadcrumb = () => {
           <span className="mx-2"><FontAwesomeIcon icon={faChevronRight} /><FontAwesomeIcon icon={faChevronRight} /></span>
         </li>
         <li>
-          <a href="/platforms" className="text-green-600 hover:text-green-700 text-md font-semibold">Sản Phẩm</a>
+          <a href="/platforms" className="text-green-600 hover:text-green-700 text-md font-semibold">Blog Hướng Dẫn</a>
         </li>
       </ol>
     </nav>
   );
 };
 
-const PlatformCard = ({ id, image, title, price }) => {
+const PlatformCard = ({ id, image, title, created }) => {
+  const formattedDate = new Date(created).toLocaleDateString('vi-VN', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+
   return (
     <div className="bg-white shadow-lg rounded-md overflow-hidden flex flex-col h-full">
       <Link to={`/platform/${id}`} >
@@ -31,13 +37,13 @@ const PlatformCard = ({ id, image, title, price }) => {
         <h3 className="text-lg font-bold mb-2">
           <Link to={`/platform/${id}`} className="text-gray-600 hover:text-green-700">{title}</Link>
         </h3>
-        <p className="text-green-700 font-semibold mt-auto">{price}</p>
+        <p className="text-green-700 font-semibold mt-auto">{formattedDate}</p>
       </div>
     </div>
   );
 };
 
-const Platforms = () => {
+const BlogTutorial = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -53,7 +59,7 @@ const Platforms = () => {
         const formattedProducts = data.data.map(item => ({
           id: item.id,
           title: item.title,
-          price: item.price,
+          created: item.date_created,
           image: `${import.meta.env.VITE_API}/assets/${item.img}`
         }));
         setProducts(formattedProducts);
@@ -72,8 +78,8 @@ const Platforms = () => {
       <div className="max-w-5xl">
         <Breadcrumb />
       </div>
-      <h1 className="text-2xl font-bold text-center text-black mb-4 mt-5">Cửa hàng - Sản phẩm tài khoản bản quyền</h1>
-      <p className="text-center text-green-600 mb-8">Giá rẻ, giá tốt nhất</p>
+      <h1 className="text-3xl font-bold text-center text-black mb-4 mt-5">Tất cả blog hướng dẫn</h1>
+      <p className="text-center text-green-600 mb-8">Mọi thắc mắc điều được giải đáp</p>
       {loading ? (
         <div className="flex justify-center items-center h-64">
           <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24"></div>
@@ -96,4 +102,4 @@ const Platforms = () => {
   );
 };
 
-export default Platforms;
+export default BlogTutorial;
