@@ -49,13 +49,16 @@ const Platforms = () => {
             'Authorization': 'Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg'
           }
         });
+        console.log('response data:', response);
         const data = await response.json();
+        console.log('data:', data);
         const formattedProducts = data.data.map(item => ({
           id: item.id,
           title: item.title,
           price: item.price,
           image: `${import.meta.env.VITE_API}/assets/${item.img}`
         }));
+        console.log('formattedProducts:', formattedProducts);
         setProducts(formattedProducts);
       } catch (error) {
         console.error('Error fetching products:', error);
