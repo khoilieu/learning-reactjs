@@ -2,6 +2,7 @@ import { useState } from "react";
 import Title from "../Components/Title";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { redirect } from "react-router-dom";
 
 const Breadcrumb = () => {
   return (
@@ -84,7 +85,7 @@ const Cart = () => {
       <div className="mb-3 text-3xl text-center">
         <Title text1={"Giỏ Hàng"} text2={"Của Bạn"} />
       </div>
-      <div className="flex justify-center items-center mb-5 py-5 bg-green-200 rounded-md text-lg">
+      <div className="flex justify-center items-center mb-5 py-5 bg-green-200 text-lg">
         <div className="flex items-center">
           <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-green-600 text-white rounded-full">
             1
@@ -249,7 +250,7 @@ const Cart = () => {
           </div>
           <button
             onClick={() => {
-              // Handle payment process
+              window.location.href = "/checkout";
             }}
             className="w-full bg-green-500 text-white py-3 mt-4 font-semibold rounded-md hover:bg-green-600 transition-all duration-300"
           >

@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Plastforms from "./Pages/Plastforms";
 import PlatformDetail from "./Pages/PlatformDetail";
 import BlogTutorial from "./Pages/BlogTutorial";
+import Checkout from "./Pages/Checkout";
 
 console.log(toast);
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/product/:productId" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/place-order" element={<PlaceOrder />} />
           <Route path="/orders" element={<Orders />} />
