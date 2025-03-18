@@ -48,13 +48,12 @@ const Footer = () => {
             <button className="bg-orange-600 shadow-lg shadow-gray-600 text-white py-3 px-7 font-bold rounded-lg hover:bg-orange-700 transform-bg duration-500">TƯ VẤN</button>
             <button className="bg-red-600 shadow-lg shadow-gray-600 text-white py-3 px-7 font-bold rounded-lg hover:bg-red-700 transform-bg duration-500">BẢO HÀNH</button>
           </div>
+          <p className="text-sm mb-2"><strong>Hotline:</strong>  088 859 1891</p>
+          <p className="text-sm mb-2"><strong>Website:</strong>  https://savvysub.com</p>
+          <p className="text-sm mb-2"><strong>Facebook:</strong>  https://www.facebook.com/savvysub</p>
+          <p className="text-sm mb-2"><strong>Telegram:</strong>  @quocthong_nqt</p>
           <p className="text-sm mb-2"><strong>Email:</strong> cskh.quantraai@gmail.com</p>
           <p className="text-sm mb-4"><strong>Địa chỉ:</strong> 71/1 Nguyễn Văn Thương, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh</p>
-          <h2 className="text-lg font-bold mb-4">ĐĂNG KÝ</h2>
-          <p className="text-sm mb-4">Đăng ký theo dõi chúng tôi để nhận thông báo về việc ra mắt sản phẩm, ưu đãi đặc biệt và tin tức về công nghệ, lập trình và phần mềm.</p>
-          <div className='flex flex-col items-center'>
-            <button className="text-white font-bold border-2 border-white shadow-lg shadow-gray-600 py-2 px-8 rounded-full hover:bg-white hover:text-green-700  transform-bg duration-500">Subscribe</button>
-          </div>
         </div>
       </div>
       
