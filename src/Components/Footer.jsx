@@ -1,17 +1,17 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
   return (
-    <div className="text-white text-sm py-10 px-48 w-full" style={{ backgroundColor: '#008052' }}>
-      <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 px-5">
+    <div className="text-white text-sm py-10 px-5 md:px-10 lg:px-20 xl:px-48 w-full" style={{ backgroundColor: '#008052' }}>
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
         <div>
-          <h2 className="text-lg font-bold mb-4 text-center">SAVVY SUB</h2>
+          <h2 className="text-lg font-bold mb-4 text-center md:text-left">SAVVY SUB</h2>
           <p className="text-sm text-justify">
             SavvySub là nền tảng hàng đầu chuyên cung cấp khóa học trực tuyến và tài khoản bản quyền với giá cả hợp lý nhất. Chúng tôi giúp bạn dễ dàng tiếp cận các dịch vụ cao cấp như YouTube Premium, Udemy Business, ChatGPT Plus, Adobe, Office 365, Canva Pro, Google One, Spotify Premium, Netflix, Elsa Pro, Duolingo và nhiều sản phẩm khác, đảm bảo trải nghiệm học tập và giải trí chất lượng.
           </p>
-          <div className="mt-4 text-center flex flex-col items-center">
+          <div className="mt-4 text-center md:text-left flex flex-col items-center md:items-start">
             <strong className='text-sm mb-2'>Chứng Nhận & Bản Quyền</strong>
             <img src="https://kinsta.com/wp-content/uploads/2019/04/DMCA-protected.png" alt="DMCA" className="w-24" />
           </div>
@@ -31,7 +31,7 @@ const Footer = () => {
             <hr />
             <li><a href="#" className="hover:underline"><FontAwesomeIcon icon={faChevronRight} size="xs" className='mr-2'/> Chính sách bảo hành</a></li>
           </ul>
-          <div className="max-w-screen-xl mt-10 mx-auto text-center px-5">
+          <div className="mt-10 text-center">
             <p className="text-sm">Phương thức thanh toán</p>
             <div className="flex justify-center space-x-4 my-3">
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/1200px-Visa_Inc._logo.svg.png" alt="Visa" className="w-12 h-7" />
@@ -44,7 +44,7 @@ const Footer = () => {
         </div>
         <div>
           <h2 className="text-lg font-bold mb-4">LIÊN HỆ</h2>
-          <div className="flex space-x-4 mb-4">
+          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mb-4">
             <button className="bg-orange-600 shadow-lg shadow-gray-600 text-white py-3 px-7 font-bold rounded-lg hover:bg-orange-700 transform-bg duration-500">TƯ VẤN</button>
             <button className="bg-red-600 shadow-lg shadow-gray-600 text-white py-3 px-7 font-bold rounded-lg hover:bg-red-700 transform-bg duration-500">BẢO HÀNH</button>
           </div>
@@ -56,7 +56,6 @@ const Footer = () => {
           <p className="text-sm mb-4"><strong>Địa chỉ:</strong> 71/1 Nguyễn Văn Thương, Phường 25, Bình Thạnh, Thành phố Hồ Chí Minh</p>
         </div>
       </div>
-      
     </div>
   );
 };
