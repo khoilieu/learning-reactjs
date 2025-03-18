@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Title from "../Components/Title";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { redirect } from "react-router-dom";
+import { faChevronRight, faCreditCard } from "@fortawesome/free-solid-svg-icons";
 
 const Breadcrumb = () => {
   return (
@@ -252,8 +251,9 @@ const Cart = () => {
             onClick={() => {
               window.location.href = "/checkout";
             }}
-            className="w-full bg-green-500 text-white py-3 mt-4 font-semibold rounded-md hover:bg-green-600 transition-all duration-300"
+            className="w-full bg-green-700 text-white py-3 mt-4 font-semibold rounded-md hover:bg-green-600 transition-all duration-300"
           >
+            <FontAwesomeIcon icon={faCreditCard} className="mr-2" />
             TIẾN HÀNH THANH TOÁN
           </button>
         </div>
