@@ -67,13 +67,13 @@ const Courses = () => {
       name: "Tên khóa học",
       description: "Mô tả khóa học",
       price: "40.000 VND",
-      image: "https://via.placeholder.com/50"
+      image: "https://whop.com/blog/content/images/2024/05/What-is-Udemy-Pros--Cons--and-Features-2024-Review.webp"
     },
     {
       name: "Tên khóa học",
       description: "Mô tả khóa học",
       price: "40.000 VND",
-      image: "https://via.placeholder.com/50"
+      image: "https://whop.com/blog/content/images/2024/05/What-is-Udemy-Pros--Cons--and-Features-2024-Review.webp"
     }
   ];
 
@@ -132,7 +132,7 @@ const Courses = () => {
           )}
         </div>
         <button
-          className="w-full bg-green-700 opacity-85 text-white shadow-md shadow-green-500 font-bold py-3 px-4 rounded-md hover:shadow-none hover:opacity-100 transition-shadow-opacity duration-300" 
+          className="w-full bg-green-700 text-white shadow-md shadow-green-500 font-bold py-3 px-4 rounded-md hover:shadow-none hover:opacity-100 transition-shadow-opacity duration-300" 
           type="button"
           onClick={() => setShowPayment(true)}
         >
@@ -141,7 +141,7 @@ const Courses = () => {
         </button>
 
         <div className={`mt-10 p-4 border rounded-md transition-all duration-500 ease-in-out ${showPayment ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-          <h2 className="text-lg font-bold text-purple-700 mb-4">Danh sách khóa học</h2>
+          <h2 className="text-lg font-bold mb-4">Danh sách khóa học</h2>
           {courses.map((course, index) => (
             <div key={index} className="flex items-center justify-between p-4 mb-4 border rounded-md">
               <div className="flex items-center">
@@ -153,16 +153,16 @@ const Courses = () => {
                 />
                 <img src={course.image} alt={course.name} className="w-12 h-12 mr-4" />
                 <div>
-                  <p className="font-bold text-purple-700 text-md truncate w-96">{course.name}</p>
+                  <p className="font-bold text-md truncate w-96">{course.name}</p>
                   <p className="text-gray-600 text-sm truncate w-96">{course.description}</p>
                 </div>
               </div>
-              <p className="font-bold text-purple-700">{course.price}</p>
+              <p className="font-bold">{course.price}</p>
             </div>
           ))}
           <div className="flex space-x-4">
             <button
-              className="w-full bg-purple-700 text-white font-bold py-3 px-4 rounded-md hover:bg-purple-600 transition-colors duration-300"
+              className="w-full bg-green-700 text-white font-bold py-3 px-4 rounded-md hover:bg-green-600 transition-colors duration-300"
               type="button"
             >
               <FontAwesomeIcon icon={faCreditCard} className="mr-2" /> 
