@@ -44,7 +44,7 @@ const Platforms = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`/api/items/account`, {
+        const response = await fetch(`/http/items/account`, {
           headers: {
             'Authorization': 'Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg'
           }
