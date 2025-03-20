@@ -50,7 +50,7 @@ const BlogTutorial = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`/api/items/account`, {
+        const response = await fetch(`/http/items/blog`, {
           headers: {
             'Authorization': 'Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg'
           }
@@ -78,7 +78,7 @@ const BlogTutorial = () => {
       <div className="max-w-5xl">
         <Breadcrumb />
       </div>
-      <h1 className="text-3xl font-bold text-center text-black mb-4 mt-5">Tất cả blog hướng dẫn</h1>
+      <h1 className="text-2xl font-bold text-center text-black mb-4 mt-5">Tất cả blog hướng dẫn</h1>
       <p className="text-center text-green-600 mb-8">Mọi thắc mắc điều được giải đáp</p>
       {loading ? (
         <div className="flex justify-center items-center h-64">
