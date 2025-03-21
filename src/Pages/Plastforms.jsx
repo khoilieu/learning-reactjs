@@ -44,7 +44,8 @@ const Platforms = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`/api/items/account`, {
+        const baseUrl = import.meta.env.DEV ? '/api' : import.meta.env.VITE_API;
+        const response = await fetch(`${baseUrl}/items/account`, {
           headers: {
             'Authorization': 'Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg'
           }
