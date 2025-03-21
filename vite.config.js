@@ -8,10 +8,10 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/http': {
+      '/api': {
         target: process.env.VITE_API,
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/http/, '')
+        rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
   }
