@@ -11,7 +11,7 @@ const Footer = () => {
           <p className="text-sm text-justify">
             SavvySub là nền tảng hàng đầu chuyên cung cấp khóa học trực tuyến và tài khoản bản quyền với giá cả hợp lý nhất. Chúng tôi giúp bạn dễ dàng tiếp cận các dịch vụ cao cấp như YouTube Premium, Udemy Business, ChatGPT Plus, Adobe, Office 365, Canva Pro, Google One, Spotify Premium, Netflix, Elsa Pro, Duolingo và nhiều sản phẩm khác, đảm bảo trải nghiệm học tập và giải trí chất lượng.
           </p>
-          <div className="mt-4 text-center md:text-left flex flex-col items-center md:items-start">
+          <div className="mt-4 text-center md:text-left flex flex-col items-center md:items-center">
             <strong className='text-sm mb-2'>Chứng Nhận & Bản Quyền</strong>
             <img src="https://kinsta.com/wp-content/uploads/2019/04/DMCA-protected.png" alt="DMCA" className="w-24" />
           </div>

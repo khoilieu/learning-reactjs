@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import Card from '../Components/Card';
 
 const Breadcrumb = () => {
   return (
@@ -14,7 +14,7 @@ const Breadcrumb = () => {
           <span className="mx-2"><FontAwesomeIcon icon={faChevronRight} /><FontAwesomeIcon icon={faChevronRight} /></span>
         </li>
         <li>
-          <a href="/platforms" className="text-green-600 hover:text-green-700 text-md font-semibold">Sản Phẩm</a>
+          <a href="/platform" className="text-green-600 hover:text-green-700 text-md font-semibold">Sản Phẩm</a>
         </li>
       </ol>
     </nav>
@@ -23,17 +23,9 @@ const Breadcrumb = () => {
 
 const PlatformCard = ({ id, image, title, price }) => {
   return (
-    <div className="bg-white shadow-lg rounded-md overflow-hidden flex flex-col h-full">
-      <Link to={`/platform/${id}`} >
-        <img src={image} alt={title} className="w-full h-40 object-cover" />
-      </Link>
-      <div className="p-4 flex-1 flex flex-col justify-between">
-        <h3 className="text-lg font-bold mb-2">
-          <Link to={`/platform/${id}`} className="text-gray-600 hover:text-green-700">{title}</Link>
-        </h3>
-        <p className="text-green-700 font-semibold mt-auto">{price}</p>
-      </div>
-    </div>
+    <Card id={id} image={image} title={title} linkPrefix="platform">
+      <p className="text-green-700 font-semibold">{price}</p>
+    </Card>
   );
 };
 

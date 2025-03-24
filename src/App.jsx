@@ -15,10 +15,11 @@ import Footer from "./Components/Footer";
 import SearchBar from "./Components/SearchBar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Plastforms from "./Pages/Plastforms";
+import Plastform from "./Pages/Plastform";
 import PlatformDetail from "./Pages/PlatformDetail";
 import BlogTutorial from "./Pages/BlogTutorial";
 import Checkout from "./Pages/Checkout";
+import BlogTutorialDetail from "./Pages/BlogTutorialDetail";
 
 console.log(toast);
 
@@ -42,9 +43,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/place-order" element={<PlaceOrder />} />
           <Route path="/orders" element={<Orders />} />
-          <Route path="/platforms" element={<Plastforms />} />
+          <Route path="/platform" element={<Plastform />} />
           <Route path="/platform/:id" element={<PlatformDetail />} />
           <Route path="/blogtutorial" element={<BlogTutorial />} />
+          <Route path="/blogtutorial/:id" element={<BlogTutorialDetail />} />
         </Routes>
       </div>
 

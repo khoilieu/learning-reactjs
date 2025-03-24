@@ -1,20 +1,36 @@
 import { useState } from "react";
 import Title from "../Components/Title";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faCreditCard } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronRight,
+  faCreditCard,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Breadcrumb = () => {
   return (
     <nav className="text-sm mb-4">
       <ol className="list-reset flex">
         <li>
-          <a href="/" className="text-gray-500 hover:text-black text-md font-semibold">🏠︎ Trang Chủ</a>
+          <a
+            href="/"
+            className="text-gray-500 hover:text-black text-md font-semibold"
+          >
+            🏠︎ Trang Chủ
+          </a>
         </li>
         <li>
-          <span className="mx-2"><FontAwesomeIcon icon={faChevronRight} /><FontAwesomeIcon icon={faChevronRight} /></span>
+          <span className="mx-2">
+            <FontAwesomeIcon icon={faChevronRight} />
+            <FontAwesomeIcon icon={faChevronRight} />
+          </span>
         </li>
         <li>
-          <a href="/courses" className="text-green-600 hover:text-green-700 text-md font-semibold">Kiểm Tra Giỏ Hàng</a>
+          <a
+            href="/courses"
+            className="text-green-600 hover:text-green-700 text-md font-semibold"
+          >
+            Kiểm Tra Giỏ Hàng
+          </a>
         </li>
       </ol>
     </nav>
@@ -29,7 +45,8 @@ const Cart = () => {
       price: 550000,
       size: "L",
       quantity: 1,
-      image: "https://st2.depositphotos.com/1350793/8441/i/450/depositphotos_84415820-stock-photo-hand-drawing-online-courses-concept.jpg",
+      image:
+        "https://st2.depositphotos.com/1350793/8441/i/450/depositphotos_84415820-stock-photo-hand-drawing-online-courses-concept.jpg",
     },
     {
       _id: "2",
@@ -37,7 +54,8 @@ const Cart = () => {
       price: 550000,
       size: "M",
       quantity: 1,
-      image: "https://st2.depositphotos.com/1350793/8441/i/450/depositphotos_84415820-stock-photo-hand-drawing-online-courses-concept.jpg",
+      image:
+        "https://st2.depositphotos.com/1350793/8441/i/450/depositphotos_84415820-stock-photo-hand-drawing-online-courses-concept.jpg",
     },
   ]);
 
@@ -48,7 +66,8 @@ const Cart = () => {
       price: 550000,
       size: "L",
       quantity: 1,
-      image: "https://whop.com/blog/content/images/2024/05/What-is-Udemy-Pros--Cons--and-Features-2024-Review.webp",
+      image:
+        "https://whop.com/blog/content/images/2024/05/What-is-Udemy-Pros--Cons--and-Features-2024-Review.webp",
     },
     {
       _id: "2",
@@ -56,7 +75,8 @@ const Cart = () => {
       price: 550000,
       size: "M",
       quantity: 1,
-      image: "https://whop.com/blog/content/images/2024/05/What-is-Udemy-Pros--Cons--and-Features-2024-Review.webp",
+      image:
+        "https://whop.com/blog/content/images/2024/05/What-is-Udemy-Pros--Cons--and-Features-2024-Review.webp",
     },
   ]);
 
@@ -71,11 +91,15 @@ const Cart = () => {
   };
 
   const removeItem = (id, size) => {
-    setCartData((prevData) => prevData.filter((item) => !(item._id === id && item.size === size)));
+    setCartData((prevData) =>
+      prevData.filter((item) => !(item._id === id && item.size === size))
+    );
   };
 
   const removePlatform = (id, size) => {
-    setPlatformData((prevData) => prevData.filter((item) => !(item._id === id && item.size === size)));
+    setPlatformData((prevData) =>
+      prevData.filter((item) => !(item._id === id && item.size === size))
+    );
   };
 
   return (
@@ -90,7 +114,10 @@ const Cart = () => {
             1
           </div>
           <span className="mx-2">Kiểm Tra Giỏ Hàng</span>
-          <FontAwesomeIcon icon={faChevronRight} className="ml-2 mr-4 text-gray-500" />
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            className="ml-2 mr-4 text-gray-500"
+          />
           <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-gray-400 text-white rounded-full">
             2
           </div>
@@ -114,7 +141,10 @@ const Cart = () => {
                 key={index}
                 className="py-3 border-b text-gray-700 grid grid-cols-12 items-center gap-4"
               >
-                <div className="flex justify-center col-span-1 cursor-pointer hover:scale-110 transition-transform duration-300" onClick={() => removeItem(item._id, item.size)}>
+                <div
+                  className="flex justify-center col-span-1 cursor-pointer hover:scale-110 transition-transform duration-300"
+                  onClick={() => removeItem(item._id, item.size)}
+                >
                   ⛔
                 </div>
                 <div className="flex items-center col-span-4">
@@ -166,7 +196,10 @@ const Cart = () => {
                 key={index}
                 className="py-3 border-b text-gray-700 grid grid-cols-12 items-center gap-4"
               >
-                <div className="flex justify-center col-span-1 cursor-pointer hover:scale-110 transition-transform duration-300" onClick={() => removePlatform(item._id, item.size)}>
+                <div
+                  className="flex justify-center col-span-1 cursor-pointer hover:scale-110 transition-transform duration-300"
+                  onClick={() => removePlatform(item._id, item.size)}
+                >
                   ⛔️
                 </div>
                 <div className="flex items-center col-span-4">
@@ -205,7 +238,7 @@ const Cart = () => {
           </div>
         </div>
 
-        <div>
+        <div className="lg:col-span-1">
           <div className="border-2 pl-4 pt-4 pr-4 pb-0 mb-4 rounded-md">
             <h2 className="text-xl font-bold mb-4">Mã giảm giá</h2>
             <div className="flex mb-4">
@@ -214,7 +247,7 @@ const Cart = () => {
                 placeholder="Nhập mã ưu đãi"
                 className="w-full p-1 border text-md rounded-md"
               />
-              <button className="bg-gray-300 text-gray-700 p-1 ml-2 font-semibold text-sm hover:bg-green-600 hover:text-white transition-all duration-300 rounded-md">
+              <button className="bg-yellow-500 text-white p-1 ml-2 font-semibold text-sm hover:bg-yellow-400 hover:text-white transition-colors duration-300 rounded-md">
                 Áp dụng
               </button>
             </div>

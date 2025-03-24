@@ -22,7 +22,7 @@ const Navbar = () => {
           <p>Khóa Học</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
-        <NavLink to="/platforms" className="flex flex-col items-center gap-1">
+        <NavLink to="/platform" className="flex flex-col items-center gap-1">
           <p>Sản Phẩm</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
