@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+// import { motion } from "framer-motion";
 
 const CommentSection = ({ comments }) => {
   const [replyingTo, setReplyingTo] = useState(null);
@@ -91,6 +92,26 @@ const CommentSection = ({ comments }) => {
       ))}
     </div>
   );
+};
+CommentSection.propTypes = {
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      user: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      time: PropTypes.string.isRequired,
+      likes: PropTypes.number.isRequired,
+      replies: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+          user: PropTypes.string.isRequired,
+          text: PropTypes.string.isRequired,
+          time: PropTypes.string.isRequired,
+          likes: PropTypes.number.isRequired,
+        })
+      ),
+    })
+  ).isRequired,
 };
 
 export default CommentSection;

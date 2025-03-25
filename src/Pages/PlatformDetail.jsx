@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import CommentSection from "../components/CommentSection";
+// import CommentSection from "../components/CommentSection";
 
 const PlatformDetail = () => {
   const { id } = useParams();
@@ -21,6 +21,7 @@ const PlatformDetail = () => {
   const [hoveredRating, setHoveredRating] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
   const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
@@ -67,34 +68,41 @@ const PlatformDetail = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const baseUrl = import.meta.env.DEV ? "/api" : import.meta.env.VITE_API;
-  
+
         // Fetch account
-        const accountRes = await fetch(`${baseUrl}/items/account/${id}?fields=*,preview_images.*`, {
-          headers: {
-            Authorization: "Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg",
-          },
-        });
+        const accountRes = await fetch(
+          `${baseUrl}/items/account/${id}?fields=*,preview_images.*`,
+          {
+            headers: {
+              Authorization: "Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg",
+            },
+          }
+        );
         const accountData = await accountRes.json();
         setProduct(accountData.data);
-  
+
         // Fetch feedback (lọc theo account)
-        const feedbackRes = await fetch(`${baseUrl}/items/feedback?filter[account]=${id}`, {
-          headers: {
-            Authorization: "Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg",
-          },
-        });
+        const feedbackRes = await fetch(
+          `${baseUrl}/items/feedback?filter[account]=${id}`,
+          {
+            headers: {
+              Authorization: "Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg",
+            },
+          }
+        );
         const feedbackData = await feedbackRes.json();
         setComments(feedbackData.data);
-  
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false); // Kết thúc loading sau khi dữ liệu được tải
       }
     };
-  
+
     fetchData();
   }, [id]);
-  
 
   const Breadcrumb = () => {
     return (
@@ -141,10 +149,19 @@ const PlatformDetail = () => {
     );
   };
 
-  if (!product) {
-    return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24"></div>
+      </div>
+    );
   }
-  
+
+  if (!product) {
+    return (
+      <div className="text-center text-red-500">Không tìm thấy sản phẩm.</div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto p-2 px-10 bg-white rounded-md mt-10">
@@ -154,7 +171,9 @@ const PlatformDetail = () => {
       <div className="flex flex-col lg:flex-row gap-10 max-w-7xl mx-auto px-12 mt-5">
         <div className="flex-1">
           <img
-            src={`${import.meta.env.VITE_API}/assets/${selectedImage || product.img}`}
+            src={`${import.meta.env.VITE_API}/assets/${
+              selectedImage || product.img
+            }`}
             alt={product.title}
             className="w-full h-80 object-cover rounded"
           />
@@ -162,7 +181,9 @@ const PlatformDetail = () => {
             {product?.preview_images?.map((image) => (
               <img
                 key={image.id}
-                src={`${import.meta.env.VITE_API}/assets/${image.directus_files_id}`}
+                src={`${import.meta.env.VITE_API}/assets/${
+                  image.directus_files_id
+                }`}
                 alt={`Preview ${image.id}`}
                 className="w-24 h-24 object-cover rounded cursor-pointer"
                 onClick={() => handleImageClick(image.directus_files_id)}
@@ -267,18 +288,25 @@ const PlatformDetail = () => {
                       />
                       <div className="flex flex-col">
                         <div className="flex items-center">
-                          <span className="font-semibold text-md">{comment.name}</span>
+                          <span className="font-semibold text-md">
+                            {comment.name}
+                          </span>
                           <hr className="w-3 mx-2 border border-black" />
                           <span className="text-black text-md">
-                            {new Date(comment.date_created).toLocaleDateString()}
+                            {new Date(
+                              comment.date_created
+                            ).toLocaleDateString()}
                           </span>
                         </div>
 
                         <span className="text-yellow-500 text-2xl">
-                          {"★".repeat(comment.rating)}{"☆".repeat(5 - comment.rating)}
+                          {"★".repeat(comment.rating)}
+                          {"☆".repeat(5 - comment.rating)}
                         </span>
 
-                        <p className="text-gray-700 font-sans">{comment.content}</p>
+                        <p className="text-gray-700 font-sans">
+                          {comment.content}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -293,7 +321,9 @@ const PlatformDetail = () => {
                   </h2>
                 </div>
                 <div className="mb-2">
-                  <label className="text-md font-semibold">Đánh giá <span className="text-red-500">*</span></label>
+                  <label className="text-md font-semibold">
+                    Đánh giá <span className="text-red-500">*</span>
+                  </label>
                   <div className="flex p-1 justify-center">
                     {[1, 2, 3, 4, 5].map((index) => (
                       <span
@@ -304,7 +334,7 @@ const PlatformDetail = () => {
                             : "text-gray-300"
                         }`}
                         onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={handleMouseLeave} 
+                        onMouseLeave={handleMouseLeave}
                         onClick={() => handleClick(index)}
                       >
                         {index <= (hoveredRating || rating) ? "★" : "☆"}
@@ -313,7 +343,9 @@ const PlatformDetail = () => {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="" className="text-md font-semibold">Họ và tên <span className="text-red-500">*</span></label>
+                  <label htmlFor="" className="text-md font-semibold">
+                    Họ và tên <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="text"
                     placeholder="Nhập họ và tên của bạn"
@@ -321,7 +353,9 @@ const PlatformDetail = () => {
                   />
                 </div>
                 <div className="mb-4 flex flex-col">
-                  <label htmlFor="" className="text-md font-semibold">Nội dung bình luận <span className="text-red-500">*</span></label>
+                  <label htmlFor="" className="text-md font-semibold">
+                    Nội dung bình luận <span className="text-red-500">*</span>
+                  </label>
                   <textarea
                     placeholder="Nội dung bình luận"
                     className="w-full border border-gray-300 rounded-md p-3 mt-2 text-sm"

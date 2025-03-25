@@ -1,5 +1,6 @@
 // components/Card.jsx
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Card = ({ id, image, title, children, linkPrefix }) => {
   return (
@@ -20,6 +21,13 @@ const Card = ({ id, image, title, children, linkPrefix }) => {
       </div>
     </div>
   );
+};
+Card.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node,
+  linkPrefix: PropTypes.string.isRequired,
 };
 
 export default Card;
