@@ -1,8 +1,8 @@
 const NewsLetterBox = () => {
-  const onSubmitHandler = (e) => {
-    e.preventDefault();
-    alert('Subscribed successfully!');
-  };
+  // const onSubmitHandler = (e) => {
+  //   e.preventDefault();
+  //   alert('Subscribed successfully!');
+  // };
 
   return (
     <div className="text-center">

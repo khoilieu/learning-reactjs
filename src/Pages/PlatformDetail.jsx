@@ -1,26 +1,27 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
   faCreditCard,
   faShoppingCart,
-  faClose,
 } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import CommentSection from "../components/CommentSection";
+import PaymentPopup from "../Components/PaymentPopup";
+// import CommentSection from "../components/CommentSection";
 
 const PlatformDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [email, setEmail] = useState("");
   const [coupon, setCoupon] = useState("");
-  const [showPopup, setShowPopup] = useState(false);
+  const [showPopupPay, setShowPopupPay] = useState(false);
   const [activeTab, setActiveTab] = useState("content");
   const [rating, setRating] = useState(0);
   const [hoveredRating, setHoveredRating] = useState(0);
   const [selectedImage, setSelectedImage] = useState(null);
   const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
@@ -57,44 +58,51 @@ const PlatformDetail = () => {
   };
 
   const handleBuyNowClick = () => {
-    setShowPopup(true);
+    setShowPopupPay(true);
   };
 
   const handleClosePopup = () => {
-    setShowPopup(false);
+    setShowPopupPay(false);
   };
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
         const baseUrl = import.meta.env.DEV ? "/api" : import.meta.env.VITE_API;
-  
+
         // Fetch account
-        const accountRes = await fetch(`${baseUrl}/items/account/${id}?fields=*,preview_images.*`, {
-          headers: {
-            Authorization: "Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg",
-          },
-        });
+        const accountRes = await fetch(
+          `${baseUrl}/items/account/${id}?fields=*,preview_images.*`,
+          {
+            headers: {
+              Authorization: "Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg",
+            },
+          }
+        );
         const accountData = await accountRes.json();
         setProduct(accountData.data);
-  
+
         // Fetch feedback (lọc theo account)
-        const feedbackRes = await fetch(`${baseUrl}/items/feedback?filter[account]=${id}`, {
-          headers: {
-            Authorization: "Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg",
-          },
-        });
+        const feedbackRes = await fetch(
+          `${baseUrl}/items/feedback?filter[account]=${id}`,
+          {
+            headers: {
+              Authorization: "Bearer xBcjNfyHV5XxOhC3zf4Zfd4lwHwzgXJg",
+            },
+          }
+        );
         const feedbackData = await feedbackRes.json();
         setComments(feedbackData.data);
-  
       } catch (error) {
         console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false); // Kết thúc loading sau khi dữ liệu được tải
       }
     };
-  
+
     fetchData();
   }, [id]);
-  
 
   const Breadcrumb = () => {
     return (
@@ -141,10 +149,19 @@ const PlatformDetail = () => {
     );
   };
 
-  if (!product) {
-    return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24"></div>
+      </div>
+    );
   }
-  
+
+  if (!product) {
+    return (
+      <div className="text-center text-red-500">Không tìm thấy sản phẩm.</div>
+    );
+  }
 
   return (
     <div className="max-w-7xl mx-auto p-2 px-10 bg-white rounded-md mt-10">
@@ -154,7 +171,9 @@ const PlatformDetail = () => {
       <div className="flex flex-col lg:flex-row gap-10 max-w-7xl mx-auto px-12 mt-5">
         <div className="flex-1">
           <img
-            src={`${import.meta.env.VITE_API}/assets/${selectedImage || product.img}`}
+            src={`${import.meta.env.VITE_API}/assets/${
+              selectedImage || product.img
+            }`}
             alt={product.title}
             className="w-full h-80 object-cover rounded"
           />
@@ -162,7 +181,9 @@ const PlatformDetail = () => {
             {product?.preview_images?.map((image) => (
               <img
                 key={image.id}
-                src={`${import.meta.env.VITE_API}/assets/${image.directus_files_id}`}
+                src={`${import.meta.env.VITE_API}/assets/${
+                  image.directus_files_id
+                }`}
                 alt={`Preview ${image.id}`}
                 className="w-24 h-24 object-cover rounded cursor-pointer"
                 onClick={() => handleImageClick(image.directus_files_id)}
@@ -267,18 +288,25 @@ const PlatformDetail = () => {
                       />
                       <div className="flex flex-col">
                         <div className="flex items-center">
-                          <span className="font-semibold text-md">{comment.name}</span>
+                          <span className="font-semibold text-md">
+                            {comment.name}
+                          </span>
                           <hr className="w-3 mx-2 border border-black" />
                           <span className="text-black text-md">
-                            {new Date(comment.date_created).toLocaleDateString()}
+                            {new Date(
+                              comment.date_created
+                            ).toLocaleDateString()}
                           </span>
                         </div>
 
                         <span className="text-yellow-500 text-2xl">
-                          {"★".repeat(comment.rating)}{"☆".repeat(5 - comment.rating)}
+                          {"★".repeat(comment.rating)}
+                          {"☆".repeat(5 - comment.rating)}
                         </span>
 
-                        <p className="text-gray-700 font-sans">{comment.content}</p>
+                        <p className="text-gray-700 font-sans">
+                          {comment.content}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -293,7 +321,9 @@ const PlatformDetail = () => {
                   </h2>
                 </div>
                 <div className="mb-2">
-                  <label className="text-md font-semibold">Đánh giá <span className="text-red-500">*</span></label>
+                  <label className="text-md font-semibold">
+                    Đánh giá <span className="text-red-500">*</span>
+                  </label>
                   <div className="flex p-1 justify-center">
                     {[1, 2, 3, 4, 5].map((index) => (
                       <span
@@ -304,7 +334,7 @@ const PlatformDetail = () => {
                             : "text-gray-300"
                         }`}
                         onMouseEnter={() => handleMouseEnter(index)}
-                        onMouseLeave={handleMouseLeave} 
+                        onMouseLeave={handleMouseLeave}
                         onClick={() => handleClick(index)}
                       >
                         {index <= (hoveredRating || rating) ? "★" : "☆"}
@@ -313,7 +343,9 @@ const PlatformDetail = () => {
                   </div>
                 </div>
                 <div className="mb-4">
-                  <label htmlFor="" className="text-md font-semibold">Họ và tên <span className="text-red-500">*</span></label>
+                  <label htmlFor="" className="text-md font-semibold">
+                    Họ và tên <span className="text-red-500">*</span>
+                  </label>
                   <input
                     type="text"
                     placeholder="Nhập họ và tên của bạn"
@@ -321,7 +353,9 @@ const PlatformDetail = () => {
                   />
                 </div>
                 <div className="mb-4 flex flex-col">
-                  <label htmlFor="" className="text-md font-semibold">Nội dung bình luận <span className="text-red-500">*</span></label>
+                  <label htmlFor="" className="text-md font-semibold">
+                    Nội dung bình luận <span className="text-red-500">*</span>
+                  </label>
                   <textarea
                     placeholder="Nội dung bình luận"
                     className="w-full border border-gray-300 rounded-md p-3 mt-2 text-sm"
@@ -340,73 +374,18 @@ const PlatformDetail = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 flex items-start pt-14 z-50 justify-center">
-          <motion.div
-            initial={{ scale: 0.5, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.5, opacity: 0 }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="bg-white p-8 rounded-md shadow-lg max-w-lg w-full"
-          >
-            <div className="flex justify-between items-center mb-5 border-b border-gray-300 pb-2">
-              <h2 className="text-xl font-bold">Thông tin thanh toán</h2>
-              <button
-                onClick={handleClosePopup}
-                className="text-gray-500 hover:text-gray-700"
-              >
-                <FontAwesomeIcon icon={faClose} size="lg" />
-              </button>
-            </div>
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              <div className="flex justify-between">
-                <input
-                  type="text"
-                  value={coupon}
-                  onChange={handleCouponChange}
-                  placeholder="Nhập mã giảm giá"
-                  className="text-sm p-2 border border-gray-300 rounded-md w-8/12"
-                />
-                <button
-                  type="button"
-                  className="text-sm bg-yellow-500 text-white font-bold py-2 px-4 rounded-md hover:bg-yellow-400 transition-colors duration-300"
-                >
-                  ÁP DỤNG
-                </button>
-              </div>
-              <input
-                type="email"
-                value={email}
-                onChange={handleEmailChange}
-                placeholder="Email mua hàng"
-                className="text-sm p-2 border border-gray-300 rounded-md"
-                required
-              />
-              <p className="text-xs text-gray-500 text-justify border-b border-gray-300 pb-2">
-                <span className="text-red-700">Lưu ý:</span> Hãy nhập chính xác
-                địa chỉ email của bạn vì email này sẽ được dùng để nhận thông
-                tin đơn hàng khi bạn thanh toán thành công.
-              </p>
-              <div className="flex justify-end gap-4">
-                <button
-                  type="button"
-                  onClick={handleClosePopup}
-                  className="text-sm bg-gray-300 text-gray-700 font-bold py-2 px-5 rounded-md hover:bg-gray-400 transition-colors duration-300"
-                >
-                  Hủy
-                </button>
-                <button
-                  type="submit"
-                  className="text-sm bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition-colors duration-300"
-                >
-                  Xác nhận
-                </button>
-              </div>
-            </form>
-          </motion.div>
-        </div>
-      )}
+          {/* Payment Popup */}
+          <PaymentPopup
+          show={showPopupPay}
+          onClose={handleClosePopup}
+          onSubmit={handleSubmit} 
+          coupon={coupon}
+          setCoupon={setCoupon}
+          email={email}
+          setEmail={setEmail}
+          handleCouponChange={handleCouponChange}   // Passing the coupon change handler
+          handleEmailChange={handleEmailChange}     // Passing the email change handler
+      />
     </div>
   );
 };
