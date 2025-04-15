@@ -46,7 +46,7 @@ const Navbar = () => {
           className="w-5 cursor-pointer "
         />
         <div className="group relative">
-          <Link to="/login">
+          <Link to="/login-register">
             <img
               src={assets.profile_icon}
               alt=""
