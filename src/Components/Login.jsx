@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import ChangePassword from "../Components/ChangePassword";
+import axios from "axios"; // Thêm axios để gọi API
 
 const Login = ({ toggleFormMode }) => {
   const [activeTab, setActiveTab] = useState("otp");
@@ -8,17 +9,53 @@ const Login = ({ toggleFormMode }) => {
   const [password, setPassword] = useState("");
   const [otp, setOtp] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [emailError, setEmailError] = useState(""); // Trạng thái lỗi email
-  const [passwordError] = useState(""); // Trạng thái lỗi mật khẩu
-  const [otpError] = useState(""); // Trạng thái lỗi OTP
-  const [showChangePassword, setShowChangePassword] = useState(false); // Trạng thái popup đổi mật khẩu
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState(""); // Thêm trạng thái lỗi mật khẩu
+  const [otpError] = useState("");
+  const [showChangePassword, setShowChangePassword] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (activeTab === "otp") {
-      console.log("Login with OTP:", email, otp); // Đăng nhập với email và OTP
+      console.log("Login with OTP:", email, otp); // Giữ nguyên phần OTP
     } else {
-      console.log("Login with Gmail:", email, password); // Đăng nhập với email và mật khẩu
+      // Đăng nhập bằng email và mật khẩu
+      if (!email) {
+        setEmailError("Vui lòng nhập email!");
+        return;
+      }
+      if (!isEmailValid(email)) {
+        setEmailError("Email không hợp lệ!");
+        return;
+      }
+      if (!password) {
+        setPasswordError("Vui lòng nhập mật khẩu!");
+        return;
+      }
+
+      try {
+        const response = await axios.post("http://localhost:3000/auth/login", {
+          email,
+          password,
+        });
+        console.log(response.data);
+        if (response.data.message === "Login successful") {
+          setEmailError("");
+          setPasswordError("");
+          alert("Đăng nhập thành công!");
+          window.location.href = "/";
+        } else {
+          alert(response.data.error);
+          setPasswordError(
+            response.data.error || "Đăng nhập thất bại!"
+          );
+        }
+      } catch (error) {
+        console.error("Login failed:", error.response?.data);
+        setPasswordError(
+          error.response?.data?.message || "Đăng nhập thất bại!"
+        );
+      }
     }
   };
 
@@ -34,24 +71,24 @@ const Login = ({ toggleFormMode }) => {
     } else if (!isEmailValid(email)) {
       setEmailError("Email không hợp lệ!");
     } else {
-      setEmailError(""); // Xóa lỗi nếu email hợp lệ
+      setEmailError("");
       console.log("Sending OTP to", email);
       // Logic gửi mã OTP đi đây
     }
   };
 
   const handleForgotPassword = () => {
-    setShowChangePassword(true); // Mở popup đổi mật khẩu
+    setShowChangePassword(true);
   };
 
   const handleCloseChangePassword = () => {
-    setShowChangePassword(false); // Đóng popup đổi mật khẩu
+    setShowChangePassword(false);
   };
 
   return (
     <div className="min-h-screen flex justify-center">
       <div className="bg-white rounded-lg w-full max-w-xl">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
+        <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
           Đăng nhập
         </h2>
 
@@ -207,11 +244,10 @@ const Login = ({ toggleFormMode }) => {
             className="text-green-600 hover:underline "
             onClick={handleForgotPassword}
           >
-            Đổi mât khẩu
+            Đổi mật khẩu
           </button>
         </div>
       </div>
-      {/* Đoạn này thêm popup ChangePassword khi bấm "Quên mật khẩu" */}
       {showChangePassword && (
         <ChangePassword onClose={handleCloseChangePassword} />
       )}
