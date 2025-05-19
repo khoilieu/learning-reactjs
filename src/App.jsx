@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./Pages/Home";
-import Collection from "./Pages/Collection";
+// import Collection from "./Pages/Collection";
 import Courses from "./Pages/Courses";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Cart from "./Pages/Cart";
-import Login from "./Pages/Login";
 import Product from "./Pages/Product";
 import PlaceOrder from "./Pages/PlaceOrder";
+import LoginRegisterPage from "./Pages/LoginRegisterPage";
 import Orders from "./Pages/Orders";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -40,7 +40,7 @@ function App() {
           <Route path="/product/:productId" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login-register" element={<LoginRegisterPage />} />
           <Route path="/place-order" element={<PlaceOrder />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/platform" element={<Plastform />} />
